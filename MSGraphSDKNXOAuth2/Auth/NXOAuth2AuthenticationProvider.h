@@ -21,7 +21,13 @@
 
 #import <Foundation/Foundation.h>
 
-#import "MSAuthenticationProvider.h"
+// Fix for Swift compatibility
+#if __has_include("MSAuthenticationProvider.h")
+  #import "MSAuthenticationProvider.h"
+#else
+  #import "MSGraphSDK/MSAuthenticationProvider.h"
+#endif
+
 
 @interface NXOAuth2AuthenticationProvider : NSObject <MSAuthenticationProvider>
 
